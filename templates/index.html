@@ -1,0 +1,36 @@
+<div class="navbar">
+    <center><h2>Movie Recommendation System</h2></center>
+</div>
+<div class="wrapper">
+    <form method="post" action="/">
+        {% csrf_token %}
+    <input id="movie_name" name="movie_name" type="text" placeholder="Enter a movie name: ">
+    <button>Recommend</button>
+    </form>
+</div>
+<br>
+<div class="wrapper">
+    <p>Outputs:</p>
+    {% if recommendations %}
+        <ul>
+            {% for movie in recommendations %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommendations available.</p>
+    {% endif %}
+</div>
+<style>
+.navbar{
+    padding: 20;
+
+}
+.wrapper{
+    margin: 10;
+    padding: 20;
+    border: 1px solid orange;
+    justify-content: center;
+    align-items: center;
+}
+</style>
